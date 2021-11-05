@@ -20,7 +20,7 @@ export default function Home({products}: InferGetStaticPropsType<typeof getStati
 
     return (
         <div>
-            {products}
+            {JSON.stringify(products)}
         </div>
   )
 }
