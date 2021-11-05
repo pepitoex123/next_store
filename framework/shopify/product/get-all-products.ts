@@ -12,10 +12,12 @@ const getAllProducts = async (): Promise<any> => {
 
     // Normalize and return new data
 
+    const products = data.products.edges.map(({node: product}) => {
+        return product;
+    }) ?? []
 
 
-
-    return data.products
+    return products
 }
 
 
