@@ -4,11 +4,11 @@ import styles from "./Layout.module.css";
 
 const Layout: FC = ({children}) => {
     return(
-        <>
-            <main className={styles.root}>
+        <div className={styles.root}>
+            <main className="fit">
                 {children}
             </main>
-        </>
+        </div>
     )
 }
 
