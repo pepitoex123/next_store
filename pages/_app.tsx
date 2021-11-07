@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import {AppProps} from "next/app";
 import {FC} from "react";
 import "@assets/main.css";
