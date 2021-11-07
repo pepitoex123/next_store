@@ -7,10 +7,6 @@ module.exports = withFrameworkConfig({
     name: "shopify"
   },
   reactStrictMode: true,
-  i18n: {
-    locales: ["en-US","es"],
-    defaultLocale: "en-US"
-  }
 })
 
 
