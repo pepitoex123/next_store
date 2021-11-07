@@ -34,12 +34,9 @@ module.exports = {
                 "primary": 'var(--text-primary)',
                 "secondary": 'var(--text-secondary)',
             },
-            backgroundColor: theme => ({
-                ...theme('colors'),
-                'primary': '#3490dc',
-                'secondary': '#ffed4a',
-                'danger': '#e3342f',
-            })
+            backgroundColor: {
+                ...this.colors
+            }
         },
     },
     variants: {
