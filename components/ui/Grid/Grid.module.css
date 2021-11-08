@@ -1,4 +1,15 @@
 .root {
     @apply grid gap-0 grid-rows-2 grid-cols-3;
 
+
+    & > * {
+          @apply row-span-1 overflow-hidden;
+          height: 500px;
+          max-height: 800px;
+
+
+          @screen lg {
+              height: inherit;
+          }
+      }
 }
