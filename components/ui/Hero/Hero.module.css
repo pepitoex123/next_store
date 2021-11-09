@@ -1,13 +1,15 @@
 .root {
-    @apply grid grid-cols-1 py-32;
+    @apply flex flex-col justify-center py-32;
+
+    align-items: center;
 
     @screen md {
-        @apply grid-cols-2;
+        @apply flex-row;
     }
 }
 
 .headline {
-    @apply text-4xl leading-10 font-extrabold text-white sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl;
+    @apply flex-1 max-w-xl text-4xl leading-10 font-extrabold text-white sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl;
 }
 
 .description {
@@ -16,6 +18,9 @@
 
 .link {
     @apply text-white pt-3 font-bold hover:underline;
+
+    display: block;
+    padding-top: 0.75rem;
 
     cursor:pointer;
 }
