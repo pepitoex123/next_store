@@ -1,6 +1,8 @@
 .root {
     @apply relative max-h-full;
 
+    max-height: 100% !important;
+
     &:hover {
         & .productBg:before {
             transform: scale(0.98);
