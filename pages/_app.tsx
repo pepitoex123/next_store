@@ -10,7 +10,6 @@ const Noop: FC = ({children}) => <>{children}</>
 function MyApp({ Component, pageProps }: AppProps & {Component: {Layout: FC}}) {
 
   const Layout = Component.Layout ?? Noop;
-  const ui = useUI();
 
   return (
       <UIProvider>
