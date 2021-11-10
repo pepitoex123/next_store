@@ -9,7 +9,9 @@ interface Props {
 const Marquee: FC<Props> = ({children}) => {
     return (
         <div className={styles.root}>
-            {children}
+            <div className={styles.container}>
+                {children}
+            </div>
         </div>
     )
 }
