@@ -1,6 +1,7 @@
 
 import {FC} from "react";
 import styles from "./Layout.module.css";
+import {Footer} from "@components/common";
 
 const Layout: FC = ({children}) => {
     return(
@@ -8,6 +9,7 @@ const Layout: FC = ({children}) => {
             <main className="fit">
                 {children}
             </main>
+            <Footer/>
         </div>
     )
 }
