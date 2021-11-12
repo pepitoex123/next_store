@@ -4,7 +4,7 @@ import s from './ProductView.module.css'
 import {Button, Container} from '@components/ui'
 import Image from "next/image"
 import { Product } from '@common/types/product'
-import {ProductSlider} from "@components/Product";
+import {ProductSlider,Swatch} from "@components/Product";
 
 interface Props {
     product: Product
@@ -44,12 +44,18 @@ const ProductView: FC<Props> = ({ product }) => {
                 </div>
                 <div className={s.sidebar}>
                     <section>
-                        <div className="pb-4">
-                            <h2 className="uppercase font-medium">Color</h2>
-                            <div className="flex flex-row py-4">
-                                Variant Options Here!
+                        {product.options.map(option =>
+                            <div key={option.id} className="pb-4">
+                                <h2 className="uppercase font-medium">{option.displayName}</h2>
+                                <div className="flex flex-row py-4">
+                                    {
+                                        option.values.map(ov =>
+                                            <Swatch key={`${option.id}-${ov.label}`} color={ov.hexColor} label={ov.label} />
+                                        )
+                                    }
+                                </div>
                             </div>
-                        </div>
+                        )}
                         <div className="pb-14 break-words w-full max-w-xl text-lg">
                             {product.description}
                         </div>
