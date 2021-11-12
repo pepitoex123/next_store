@@ -50,7 +50,7 @@ const ProductView: FC<Props> = ({ product }) => {
                                 <div className="flex flex-row py-4">
                                     {
                                         option.values.map(ov =>
-                                            <Swatch key={`${option.id}-${ov.label}`} color={ov.hexColor} label={ov.label} />
+                                            <Swatch key={`${option.id}-${ov.label}`} color={ov.hexColor} label={ov.label} variant={option.displayName}/>
                                         )
                                     }
                                 </div>
