@@ -23,6 +23,7 @@ const normalizeProductOption = ({id, values, name: displayName}: ProductOption) 
     console.log("ID", id);
     console.log("NAME", displayName);
     console.log("VALUES", values);
+    return {}
 }
 
 
