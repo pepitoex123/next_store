@@ -14,6 +14,7 @@ const ProductView: FC<Props> = ({ product }) => {
 
     console.log("El producto es ", product)
 
+
     return (
         <Container>
             <div className={cn(s.root, 'fit')}>
