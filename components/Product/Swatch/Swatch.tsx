@@ -3,6 +3,7 @@ import {FC} from "react";
 import styles from "./Swatch.module.css";
 import {Check} from "@components/icons";
 import cn from "classnames";
+import {isDark} from "@lib/color";
 
 interface Props {
     color?: string
@@ -22,16 +23,19 @@ const Swatch: FC<Props> = ({color,label,variant,active,...rest}) => {
     const rootClassName = cn(styles.root, {
         [styles.active]: active,
         [styles.color]: color,
-        [styles.size]: variant === "size"
+        [styles.size]: variant === "size",
+        [styles.dark]: color && isDark(color)
     })
 
 
     return(
         <button style={color ? {backgroundColor: color} : {}} className={rootClassName} {...rest}>
             {
-                /* <span>
-                    <Check/>
-                </span> */
+                variant === "color" && active && (
+                    <span>
+                        <Check/>
+                    </span>
+                )
             }
             {variant === "size" ? label : null}
         </button>
