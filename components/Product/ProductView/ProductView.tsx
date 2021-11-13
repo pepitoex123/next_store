@@ -51,22 +51,30 @@ const ProductView: FC<Props> = ({ product }) => {
                 </div>
                 <div className={s.sidebar}>
                     <section>
-                        {product.options.map(option =>
-                            <div key={option.id} className="pb-4">
-                                <h2 className="uppercase font-medium">{option.displayName}</h2>
-                                <div className="flex flex-row py-4">
-                                    {
-                                        option.values.map(ov =>
-                                            <Swatch key={`${option.id}-${ov.label}`} color={ov.hexColor} label={ov.label} variant={option.displayName} onClick={() => {
-                                                setChoices({
-                                                    ...choices,
-                                                    [option.displayName.toLowerCase()]: ov.label.toLowerCase()
-                                                })
-                                            }}/>
-                                        )
-                                    }
+                        {product.options.map(option => {
+                            return(
+                                <div key={option.id} className="pb-4">
+                                    <h2 className="uppercase font-medium">{option.displayName}</h2>
+                                    <div className="flex flex-row py-4">
+                                        {
+                                            option.values.map(ov => {
+                                                const activeChoice = choices[option.displayName.toLowerCase()]
+                                                console.log(activeChoice)
+                                                return(
+                                                    <Swatch active={ov.label.toLowerCase() === activeChoice} key={`${option.id}-${ov.label}`} color={ov.hexColor} label={ov.label} variant={option.displayName} onClick={() => {
+                                                        setChoices({
+                                                            ...choices,
+                                                            [option.displayName.toLowerCase()]: ov.label.toLowerCase()
+                                                        })
+                                                    }}/>
+                                                )
+                                            }
+                                            )
+                                        }
+                                    </div>
                                 </div>
-                            </div>
+                            )
+                        }
                         )}
                         <div className="pb-14 break-words w-full max-w-xl text-lg">
                             {product.description}
