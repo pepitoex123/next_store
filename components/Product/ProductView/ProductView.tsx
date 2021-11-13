@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import React, { FC } from 'react'
+import React, {FC, useState} from 'react'
 import s from './ProductView.module.css'
 import {Button, Container} from '@components/ui'
 import Image from "next/image"
@@ -12,8 +12,9 @@ interface Props {
 
 const ProductView: FC<Props> = ({ product }) => {
 
-    console.log("El producto es ", product)
+    const [choices,setChoices] = useState({});
 
+    console.log(choices);
 
     return (
         <Container>
@@ -50,7 +51,12 @@ const ProductView: FC<Props> = ({ product }) => {
                                 <div className="flex flex-row py-4">
                                     {
                                         option.values.map(ov =>
-                                            <Swatch key={`${option.id}-${ov.label}`} color={ov.hexColor} label={ov.label} variant={option.displayName}/>
+                                            <Swatch key={`${option.id}-${ov.label}`} color={ov.hexColor} label={ov.label} variant={option.displayName} onClick={() => {
+                                                setChoices({
+                                                    ...choices,
+                                                    [option.displayName.toLowerCase()]: ov.label.toLowerCase()
+                                                })
+                                            }}/>
                                         )
                                     }
                                 </div>
